@@ -1,0 +1,315 @@
+:root {
+    --purple: #6a11cb;
+    --pink: #ff87ab;
+    --blue: #2575fc;
+    --white: #ffffff;
+    --glow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    color: white;
+    background: #000;
+}
+
+/* Animated Gradient Background */
+.bg-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #6a11cb, #ff87ab, #2575fc, #ff4d6d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Scenes Logic */
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+    padding: 20px;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Teddy Animations */
+.teddies-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.bear-svg {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+.white-teddy .bear-svg { animation-delay: 0.5s; }
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.eye {
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+/* Text Stylings */
+.title-text {
+    font-size: 2.5rem;
+    text-shadow: var(--glow);
+    margin-bottom: 30px;
+}
+
+.title-text span {
+    font-size: 3rem;
+    display: block;
+    color: #ffeb3b;
+}
+
+/* Buttons */
+.btn-glowing {
+    background: white;
+    color: var(--purple);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-glowing:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+}
+
+.btn-glowing.pink {
+    background: #ff4d6d;
+    color: white;
+}
+
+/* Mini Game */
+#game-area {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 60vh;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.game-heart {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Cake Scene */
+.cake-cutting-area {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+#cake-container {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 50px auto;
+    cursor: pointer;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    height: 60px;
+    background: #f48fb1;
+    border-radius: 50% 50% 0 0;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #ad1457;
+    border-radius: 0 0 10px 10px;
+}
+
+.candle {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 40px;
+    background: #ffeb3b;
+    z-index: 2;
+}
+
+.flame {
+    width: 15px;
+    height: 20px;
+    background: #ff9800;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -15px;
+    left: -2px;
+    animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.1); opacity: 1; }
+}
+
+.knife {
+    position: absolute;
+    font-size: 3rem;
+    pointer-events: none;
+    transition: 0.1s;
+    z-index: 10;
+}
+
+.cake-slice-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: white;
+    left: 50%;
+    top: 0;
+    display: none;
+}
+
+/* Promise Screen */
+.promise-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.promise-text {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+/* Love Screen */
+.mega-love {
+    font-size: 5rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px red); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 30px red); }
+}
+
+.heart-pulse {
+    font-size: 6rem;
+    margin: 20px 0;
+}
+
+/* Final Scene */
+.ending-content { z-index: 5; }
+.glow-text {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    opacity: 0;
+    animation: fadeInGlow 1.5s forwards;
+}
+
+.delay-1 { animation-delay: 1s; }
+.delay-2 { animation-delay: 2s; }
+
+@keyframes fadeInGlow {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); text-shadow: 0 0 20px white; }
+}
+
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Floating Particles */
+.heart-particle {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .title-text { font-size: 1.8rem; }
+    .title-text span { font-size: 2.2rem; }
+    .mega-love { font-size: 3rem; }
+    .teddies-container { gap: 10px; }
+    .bear-svg { width: 80px; height: 80px; }
+    .promise-text { font-size: 1.4rem; }
+}
