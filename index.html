@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Falak My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div id="particles-container"></div>
+
+    <main id="main-container">
+        <!-- Scene 1: Welcome Screen -->
+        <section id="scene-1" class="scene active">
+            <div class="teddies-container">
+                <div class="teddy gray-teddy">
+                    <!-- SVG Teddy -->
+                    <svg viewBox="0 0 200 200" class="bear-svg">
+                        <circle cx="100" cy="110" r="60" fill="#888" />
+                        <circle cx="70" cy="60" r="25" fill="#888" />
+                        <circle cx="130" cy="60" r="25" fill="#888" />
+                        <circle cx="100" cy="115" r="45" fill="#999" />
+                        <circle class="eye" cx="80" cy="100" r="5" fill="#000" />
+                        <circle class="eye" cx="120" cy="100" r="5" fill="#000" />
+                        <ellipse cx="100" cy="120" rx="15" ry="10" fill="#666" />
+                    </svg>
+                    <span class="label">Me</span>
+                </div>
+                <div class="cake-icon">
+                    <svg viewBox="0 0 100 100" class="cake-svg">
+                        <rect x="20" y="50" width="60" height="40" rx="5" fill="#ffeb3b" />
+                        <path d="M20 60 Q50 40 80 60" fill="#f48fb1" />
+                        <rect x="47" y="30" width="6" height="20" fill="#ff5722" />
+                        <circle class="flame" cx="50" cy="25" r="5" fill="#ff9800" />
+                    </svg>
+                </div>
+                <div class="teddy white-teddy">
+                    <svg viewBox="0 0 200 200" class="bear-svg">
+                        <circle cx="100" cy="110" r="60" fill="#fff" />
+                        <circle cx="70" cy="60" r="25" fill="#fff" />
+                        <circle cx="130" cy="60" r="25" fill="#fff" />
+                        <circle cx="100" cy="115" r="45" fill="#fefefe" />
+                        <circle class="eye" cx="80" cy="100" r="5" fill="#000" />
+                        <circle class="eye" cx="120" cy="100" r="5" fill="#000" />
+                        <ellipse cx="100" cy="120" rx="15" ry="10" fill="#ffc0cb" />
+                    </svg>
+                    <span class="label">Falak</span>
+                </div>
+            </div>
+            <h1 class="title-text">Happy Birthday <br><span>Falak My Love ❤️</span></h1>
+            <button class="btn-glowing" onclick="goToScene(2)">🎁 Surprise</button>
+        </section>
+
+        <!-- Scene 2: Mini Game -->
+        <section id="scene-2" class="scene">
+            <h2 class="scene-title">Catch 10 Hearts for a Surprise!</h2>
+            <div class="game-stats">Score: <span id="score">0</span> / 10</div>
+            <div id="game-area"></div>
+        </section>
+
+        <!-- Scene 3: Cake Cutting -->
+        <section id="scene-3" class="scene">
+            <h2 class="scene-title">Make a Wish & Cut the Cake!</h2>
+            <div class="cake-cutting-area">
+                <div id="cake-container">
+                    <div class="candle"><div class="flame" id="main-flame"></div></div>
+                    <div class="cake-top"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-slice-line" id="slice-line"></div>
+                </div>
+                <div id="knife" class="knife">🔪</div>
+            </div>
+            <p class="instruction">Tap the cake to cut!</p>
+        </section>
+
+        <!-- Scene 4: Promise Screen -->
+        <section id="scene-4" class="scene">
+            <div class="promise-card">
+                <p class="promise-text">Promise karo ke tum mere saath humesha raho gi ❤️</p>
+                <div class="btn-group">
+                    <button class="btn-glowing pink" onclick="goToScene(5)">💖 Promise</button>
+                    <button class="btn-glowing pink" onclick="goToScene(5)">💞 Forever</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 5: Love Screen -->
+        <section id="scene-5" class="scene">
+            <div class="love-content">
+                <h1 class="mega-love">I LOVE YOU ❤️</h1>
+                <p class="sub-love">Happy Birthday Falak My Love ❤️</p>
+                <div class="heart-pulse">❤️</div>
+                <button class="btn-glowing" onclick="goToScene(6)">Continue</button>
+            </div>
+        </section>
+
+        <!-- Scene 6: Happy Ending -->
+        <section id="scene-6" class="scene">
+            <div class="ending-content">
+                <h1 class="glow-text">Happy Birthday Falak My Love ❤️</h1>
+                <h2 class="glow-text delay-1">Thank You For Coming Into My Life ❤️</h2>
+                <h3 class="glow-text delay-2">Forever Together ❤️</h3>
+                <button class="btn-glowing" onclick="restartGame()">Play Again</button>
+            </div>
+            <canvas id="fireworks-canvas"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+  </html>
